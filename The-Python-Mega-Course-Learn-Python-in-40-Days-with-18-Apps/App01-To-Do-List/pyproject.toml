@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "app01-to-do-list"
+version = "0.1.0"
+description = ""
+authors = ["Andy"]
+readme = "README.md"
+packages = [{include = "app01_to_do_list"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
