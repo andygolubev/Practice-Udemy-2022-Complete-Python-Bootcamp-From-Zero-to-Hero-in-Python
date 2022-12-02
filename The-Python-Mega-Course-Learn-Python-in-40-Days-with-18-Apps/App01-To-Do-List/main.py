@@ -13,6 +13,10 @@ while True:
                 print(item)
         case 'delete':
             print('delete item')
+        case 'edit':
+            num = int(input("type a todo number to  edit: "))
+            to_do_list[num - 1] = "EDITED"
+            print(to_do_list)
         case 'exit':
             break
         case _:
