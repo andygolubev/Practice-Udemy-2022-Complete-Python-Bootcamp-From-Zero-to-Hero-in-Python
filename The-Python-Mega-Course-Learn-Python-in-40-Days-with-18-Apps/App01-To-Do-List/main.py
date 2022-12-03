@@ -9,8 +9,8 @@ while True:
     match user_action:
         case 'add':
             to_do_list.append(input(add_prompt))
-            for item in to_do_list:
-                print(item)
+            for index, item in enumerate(to_do_list):
+                print(index, '  -  ', item)
         case 'delete':
             print('delete item')
         case 'edit':
