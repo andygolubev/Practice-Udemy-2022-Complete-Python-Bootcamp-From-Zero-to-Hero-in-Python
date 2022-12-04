@@ -11,6 +11,8 @@ while True:
             to_do_list.append(input(add_prompt))
             for index, item in enumerate(to_do_list):
                 print(index, '  -  ', item)
+            with open('todofile.txt', 'w') as todofile:
+                todofile.writelines()
         case 'delete':
             print('delete item')
         case 'edit':
