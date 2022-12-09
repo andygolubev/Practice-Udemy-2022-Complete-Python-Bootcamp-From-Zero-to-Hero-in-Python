@@ -21,18 +21,7 @@ def print_all():
         print(f"*\t{index+1} - {item}")
     print("*************************")
 
-def flush_to_disk():
-    try:
-
-        with open(filename, 'w') as todofile:
-            for item in to_do_list:
-                todofile.writelines(item + '\n')
-    except:
-        print(f"ERROR while opening file: {filename}")
-
-def __main__():
-
-
+def read_todos_from_file():
     # READ file
     try:
         with open(filename, 'r') as todo_file:
@@ -41,6 +30,17 @@ def __main__():
     except:
         print(f"ERROR while opening file: {filename}")
         exit(1)
+def flush_to_disk():
+    try:
+        with open(filename, 'w') as todofile:
+            for item in to_do_list:
+                todofile.writelines(item + '\n')
+    except:
+        print(f"ERROR while opening file: {filename}")
+
+def __main__():
+    # Read todos from the file
+    read_todos_from_file()
 
     # ASK user what to do
     add_prompt = "Enter a ToDo:"
