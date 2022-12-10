@@ -8,7 +8,7 @@ cases = {
     '5': 'Exit'
 }
 filename = "todofile.txt"
-to_do_list = []
+
 
 def print_action_prompt():
     print("Choose an action:")
@@ -24,13 +24,15 @@ def print_all():
 def read_todos_from_file():
     # READ file
     try:
+        to_do_list = []
         with open(filename, 'r') as todo_file:
             for line in todo_file.readlines():
                 to_do_list.append(line.replace('\n', ''))
+            return to_do_list
     except:
         print(f"ERROR while opening file: {filename}")
         exit(1)
-def flush_to_disk():
+def flush_to_disk(to_do_list):
     try:
         with open(filename, 'w') as todofile:
             for item in to_do_list:
@@ -40,7 +42,7 @@ def flush_to_disk():
 
 def __main__():
     # Read todos from the file
-    read_todos_from_file()
+    to_do_list = read_todos_from_file()
 
     # ASK user what to do
     add_prompt = "Enter a ToDo:"
@@ -53,7 +55,7 @@ def __main__():
             case '1':
                 to_do_list.append(input(add_prompt))
 
-                flush_to_disk()
+                flush_to_disk(to_do_list)
             # DELETE #
             case '2':
                 num = int(input("type a todo number to  delete: "))
