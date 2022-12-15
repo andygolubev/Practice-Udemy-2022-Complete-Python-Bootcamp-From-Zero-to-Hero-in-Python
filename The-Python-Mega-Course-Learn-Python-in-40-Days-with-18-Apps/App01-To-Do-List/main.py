@@ -69,5 +69,6 @@ def __main__():
             case _:
                 print("Type 'add' or 'delete' or 'exit'")
 
-__main__()
+if __name__ == "__main__":
+    __main__()
 
